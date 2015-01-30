@@ -12,12 +12,12 @@
     <body>
         <div class="navbar-fixed">
             <nav>
-                <div class="nav-wrapper">
-                    <a href="#" class="brand-logo">Logo</a>
+                <div class="nav-wrapper blue-grey darken-4">
+                    <a href="#" class="brand-logo offset-s6">&nbsp;Swank
+                        Rats</a>
                     <ul id="nav-mobile" class="right side-nav">
-                        <li><a href="sass.html">Sass</a></li>
-                        <li><a href="components.html">Components</a></li>
-                        <li><a href="javascript.html">JavaScript</a></li>
+                        <li><a href="/">Game</a></li>
+                        <li><a href="/highscore">Highscore</a></li>
                     </ul>
 
                     <!-- Include this line below -->
@@ -29,22 +29,40 @@
 
         <div class="container">
 
-            <div class="row">
-                {%block header%}
-                {%endblock%}
-            </div>
+            {%block content%}
+            <h1>Basic page to extend!</h1>
+            {%endblock%}
 
-            <div class="row">
-                {%block content%}
-                <h1>Basic page to extend!</h1>
-                {%endblock%}
-            </div>
-
-            <div class="row">
-                {%block footer%}
-                {%endblock%}
-            </div>
         </div>
+
+        <footer class="page-footer blue-grey darken-4">
+            <div class="container">
+                <div class="row">
+                    <div class="col l6 s12">
+                        <h5 class="white-text">Swank Rats</h5>
+
+                        <p class="grey-text text-lighten-4">Swank-Rats is a mulitplayer, realtime, augmentmented reality, browser based, distributed, platform independent and awsesome game. Which combines modern technologies and communication systems.</p>
+                    </div>
+                    <div class="col l4 offset-l2 s12">
+                        <h5 class="white-text">Links</h5>
+                        <ul>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="/">Game</a>
+                            </li>
+                            <li>
+                                <a class="grey-text text-lighten-3" href="/highscore">Highscore</a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="footer-copyright">
+                <div class="container">
+                    © 2015 Swank Rats
+                </div>
+            </div>
+        </footer>
+
     </body>
 
     {% block javascript %}

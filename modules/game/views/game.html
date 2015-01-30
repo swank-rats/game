@@ -1,5 +1,78 @@
 {% extends "../../../public/index.html"%}
 
 {%block content%}
-<h1>{{title}}</h1>
+
+<div class="row" id="choose">
+    <h3>Choose a form!</h3>
+
+    <div class="row">
+        <div class="col s12 m5">
+            <div class="card-panel teal">
+          <span class="white-text"><i class="mdi-image-crop-landscape large"></i>(square)
+          </span>
+            </div>
+        </div>
+
+        <div class="col s12 offset-m2 m5">
+            <div class="card-panel teal">
+          <span class="white-text">I am a very simple card. I am good at containing small bits of information.
+          I am convenient because I require little markup to use effectively. I am similar to what is called a panel in other frameworks.
+          </span>
+            </div>
+        </div>
+    </div>
+
+    <div class="progress">
+        <div class="indeterminate"></div>
+    </div>
+</div>
+
+<div class="row" id="play">
+    <div class="section" id="stream">
+        <h3>Play</h3>
+
+        <div class="video-container">
+            <iframe width="853" height="480" src="//www.youtube.com/embed/Q8TXgCzxEnw?rel=0" frameborder="0" allowfullscreen></iframe>
+        </div>
+
+        <span><i class="mdi-action-favorite medium"></i>100/100</span>
+    </div>
+
+    <div class="section" id="controlls">
+        <h4>Controlls</h4>
+
+
+        <table class="responsive-table striped">
+            <thead>
+                <tr>
+                    <th>Key</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>w</td>
+                    <td>foward</td>
+                </tr>
+                <tr>
+                    <td>s</td>
+                    <td>backward</td>
+                </tr>
+                <tr>
+                    <td>a</td>
+                    <td>left</td>
+                </tr>
+                <tr>
+                    <td>d</td>
+                    <td>right</td>
+                </tr>
+                <tr>
+                    <td>l</td>
+                    <td>shoot</td>
+                </tr>
+            </tbody>
+        </table>
+
+    </div>
+</div>
 {%endblock%}

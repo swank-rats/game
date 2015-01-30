@@ -1,5 +1,7 @@
 'use strict';
 
+// TODO best practice for this  app structure as well as module structure with paths
+
 var express = require('express'),
     https = require('https'),
     config = require('./config/config'),
@@ -54,5 +56,3 @@ app.set('views', __dirname + '\\modules\\');
 
 // serve static content
 app.use('/public', express.static('./public'));
-// TODO best practice for this  app structure as well as module structure with paths
-
