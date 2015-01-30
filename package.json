@@ -9,9 +9,8 @@
   "author": "swank rats",
   "license": "MIT",
   "devDependencies": {
-    "consolidate": "*",
-    "swig": "*",
     "express": "^4.11.1",
-    "websocket-wrapper": "git+ssh://git@github.com:swank-rats/websocket-wrapper.git#master"
+    "websocket-wrapper": "git+ssh://git@github.com:swank-rats/websocket-wrapper.git#master",
+    "swig": "*"
   }
 }

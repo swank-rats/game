@@ -4,12 +4,23 @@ var express = require('express'),
     https = require('https'),
     config = require('./config/config'),
     app = express(),
-    WebsocketServer = require('./modules/websocket/controller/websocket').WebsocketServer,
+
     server, ws,
 
+    // websocket
+    WebsocketServer = require('./modules/websocket/controller/websocket').WebsocketServer,
+
+    // swig
+    swig = require('swig'),
+
+    // routing
     gameRoutes = require('./modules/game/routes/game.js'),
     highscoreRoutes = require('./modules/highscore/routes/highscore.js');
 
+/**
+ * Creates a https webserver instance
+ * @type {*|http.Server}
+ */
 server = https.createServer(config.getHttpsCredentials(), app)
     .listen(config.server.port, config.server.ip, function() {
         var host = server.address().address;
@@ -18,6 +29,7 @@ server = https.createServer(config.getHttpsCredentials(), app)
         console.log('Lstening at https://%s:%s', host, port);
     });
 
+// init websocket server
 ws = new WebsocketServer({server: server});
 
 // test websocket listener
@@ -34,3 +46,9 @@ ws.addListener('test', {
 // add routing with default route prefix
 app.use('/', gameRoutes);
 app.use('/highscore', highscoreRoutes);
+
+
+// swig integration
+app.engine('html', swig.renderFile);
+app.set('view engine', 'html');
+app.set('views', __dirname + '\\modules\\');
