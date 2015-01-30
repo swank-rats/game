@@ -2,10 +2,12 @@
 
 var express = require('express'),
     router = express.Router(),
-    controller = require('../controller/game');
+    controller = require('../controller/game'),
+
+    modulePathPrefix = 'game\\views\\'; // TODO better way?
 
 router.get('/', function(req, res) {
-    res.render('game\\views\\game', {title: controller.get()});
+    res.render(modulePathPrefix + 'game', {title: controller.get()});
 });
 
 module.exports = router;

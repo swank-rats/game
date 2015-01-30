@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+    <head lang="en">
+        <meta charset="UTF-8">
+        <title>swank rats</title>
+
+        {% block css %}
+        <link href="/public/css/materialize.min.css" type="text/css"  rel="stylesheet"  media="screen,projection"/>
+        {% endblock %}
+
+    </head>
+    <body>
+
+        {%block header%}
+        {%endblock%}
+
+        {%block content%}
+        <h1>Basic page to extend!</h1>
+        {%endblock%}
+
+        {%block footer%}
+        {%endblock%}
+
+    </body>
+
+    {% block javascript %}
+    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
+    <!--<script type="application/javascript" src="/public/js/materialize.min.js"></script>-->
+    {% endblock %}
+
+</html>
