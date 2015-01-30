@@ -8,7 +8,7 @@ var express = require('express'),
     server, ws,
 
     // websocket
-    WebsocketServer = require('./modules/websocket/controller/websocket').WebsocketServer,
+    WebsocketServer = require('websocket-wrapper').WebsocketWrapper,
 
     // swig
     swig = require('swig'),
