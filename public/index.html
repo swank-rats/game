@@ -5,27 +5,54 @@
         <title>swank rats</title>
 
         {% block css %}
-        <link href="/public/css/materialize.min.css" type="text/css"  rel="stylesheet"  media="screen,projection"/>
+        <link href="/public/css/materialize.min.css" type="text/css" rel="stylesheet" media="screen,projection"/>
         {% endblock %}
 
     </head>
     <body>
+        <div class="navbar-fixed">
+            <nav>
+                <div class="nav-wrapper">
+                    <a href="#" class="brand-logo">Logo</a>
+                    <ul id="nav-mobile" class="right side-nav">
+                        <li><a href="sass.html">Sass</a></li>
+                        <li><a href="components.html">Components</a></li>
+                        <li><a href="javascript.html">JavaScript</a></li>
+                    </ul>
 
-        {%block header%}
-        {%endblock%}
+                    <!-- Include this line below -->
+                    <a class="button-collapse" href="#" data-activates="nav-mobile"><i class="mdi-navigation-menu"></i></a>
+                    <!-- End -->
+                </div>
+            </nav>
+        </div>
 
-        {%block content%}
-        <h1>Basic page to extend!</h1>
-        {%endblock%}
+        <div class="container">
 
-        {%block footer%}
-        {%endblock%}
+            <div class="row">
+                {%block header%}
+                {%endblock%}
+            </div>
 
+            <div class="row">
+                {%block content%}
+                <h1>Basic page to extend!</h1>
+                {%endblock%}
+            </div>
+
+            <div class="row">
+                {%block footer%}
+                {%endblock%}
+            </div>
+        </div>
     </body>
 
     {% block javascript %}
-    <!--<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>-->
-    <!--<script type="application/javascript" src="/public/js/materialize.min.js"></script>-->
+    <script type="text/javascript" src="/public/js/jquery.min.js"></script>
+    <script type="application/javascript" src="/public/js/materialize.min.js"></script>
+    <script type="application/javascript">
+        $(".button-collapse").sideNav();
+    </script>
     {% endblock %}
 
 </html>

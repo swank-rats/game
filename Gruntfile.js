@@ -2,22 +2,33 @@
 
 module.exports = function(grunt) {
 
-    // load all modules starting with "grunt-"
-    require('matchdep').filterDev('grunt-*').forEach(grunt.loadNpmTasks);
+    grunt.loadNpmTasks('grunt-contrib-copy');
 
     // Project configuration.
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
         copy: {
             main: {
-                files: [
-                    // includes files within path and its sub-directories
-                    {expand: true, src: ['bower_components/*/dist/**.js'], dest: 'public/js/'},
-                ]
+                files: [{
+                    expand: true,
+                    cwd: './bower_components/jquery/dist',
+                    src: '*',
+                    dest: 'public/js',
+                    flatten: false,
+                    filter: 'isFile'
+                }, {
+                    expand: true,
+                    cwd: './bower_components/materialize/dist',
+                    src: '**',
+                    dest: 'public/',
+                    flatten: false,
+                    filter: 'isFile'
+                }]
             }
         }
     });
 
-    grunt.registerTask('copy', [copy]);
+    grunt.registerTask('default', []);
+    grunt.registerTask('publish', ['copy']);
 
 };

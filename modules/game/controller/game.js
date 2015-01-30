@@ -2,8 +2,8 @@
 
 var GameController =  {
 
-    get: function() {
-        return 'hello from the game controller!';
+    get: function(param) {
+        return 'hello '+param+'! I am the game controller!';
     }
 };
 
