@@ -1,0 +1,17 @@
+{
+  "name": "game",
+  "version": "1.0.0",
+  "description": "game logic for swank rats",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "swank rats",
+  "license": "MIT",
+  "devDependencies": {
+    "consolidate": "*",
+    "swig": "*",
+    "express": "^4.11.1",
+    "websocket-wrapper": "git+ssh://git@github.com:swank-rats/websocket-wrapper.git#master"
+  }
+}
