@@ -1,23 +1,15 @@
 'use strict';
 
-// TODO best practice for this  app structure as well as module structure with paths
-
 var express = require('express'),
     https = require('https'),
     config = require('./config/config'),
+
+    swig = require('./bootstrap/swig'),
+    routing = require('./bootstrap/routing'),
+    websocket = require('./bootstrap/websocket'),
+
     app = express(),
-
-    server, ws,
-
-// websocket
-    WebsocketServer = require('websocket-wrapper').WebsocketWrapper,
-
-// swig
-    swig = require('swig'),
-
-// routing
-    gameRoutes = require('./modules/game/routes/game.js'),
-    highscoreRoutes = require('./modules/highscore/routes/highscore.js');
+    server;
 
 /**
  * Creates a https webserver instance
@@ -31,28 +23,10 @@ server = https.createServer(config.getHttpsCredentials(), app)
         console.log('Lstening at https://%s:%s', host, port);
     });
 
-// init websocket server
-ws = new WebsocketServer({server: server});
-
-// test websocket listener
-ws.addListener('test', {
-    echo: function(socket, params, data) {
-        if (!!params.toUpper) {
-            data = data.toUpperCase();
-        }
-        socket.send(data);
-    }
-});
-
-// register routes
-// add routing with default route prefix
-app.use('/', gameRoutes);
-app.use('/highscore', highscoreRoutes);
-
-// swig integration
-app.engine('html', swig.renderFile);
-app.set('view engine', 'html');
-app.set('views', __dirname + '\\modules\\');
+// init important basic services
+routing.init(app);
+websocket.init(server);
+swig.init(app, 'html', __dirname + '/modules/');
 
 // serve static content
 app.use('/public', express.static('./public'));
